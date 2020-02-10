@@ -29,6 +29,7 @@
       "post-commit": "npm run deploy"
     }
   },
+  "homepage": "https://taq2.github.io/hindi-flashcards/",
   "browserslist": {
     "production": [
       ">0.2%",
