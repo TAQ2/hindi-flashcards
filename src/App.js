@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Quiz from "./Quiz";
-import { words } from "./data";
+import words from "./questions.json";
 import SetupScreen from "./SetupScreen";
 
 export default function App() {

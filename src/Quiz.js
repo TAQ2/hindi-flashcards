@@ -5,7 +5,7 @@ import {
   calculateChoices,
   calculateCorrectAnswerTotal
 } from "./logic";
-import { words } from "./data";
+import words from "./questions.json";
 
 function App() {
   const [history, setHistory] = useState([]);
