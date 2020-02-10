@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/hindi-flashcards/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/hindi-flashcards/static/js/main.bba45587.chunk.js",
-    "main.js.map": "/hindi-flashcards/static/js/main.bba45587.chunk.js.map",
+    "main.js": "/hindi-flashcards/static/js/main.5a9080fa.chunk.js",
+    "main.js.map": "/hindi-flashcards/static/js/main.5a9080fa.chunk.js.map",
     "runtime-main.js": "/hindi-flashcards/static/js/runtime-main.bff2ef76.js",
     "runtime-main.js.map": "/hindi-flashcards/static/js/runtime-main.bff2ef76.js.map",
     "static/js/2.a63dc360.chunk.js": "/hindi-flashcards/static/js/2.a63dc360.chunk.js",
     "static/js/2.a63dc360.chunk.js.map": "/hindi-flashcards/static/js/2.a63dc360.chunk.js.map",
     "index.html": "/hindi-flashcards/index.html",
-    "precache-manifest.e153cf9c7035ec441b24d4e7fcbfc384.js": "/hindi-flashcards/precache-manifest.e153cf9c7035ec441b24d4e7fcbfc384.js",
+    "precache-manifest.06257202c416da16fee7d1acac337e6f.js": "/hindi-flashcards/precache-manifest.06257202c416da16fee7d1acac337e6f.js",
     "service-worker.js": "/hindi-flashcards/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/hindi-flashcards/static/css/main.5ecd60fb.chunk.css.map",
     "static/js/2.a63dc360.chunk.js.LICENSE.txt": "/hindi-flashcards/static/js/2.a63dc360.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.bff2ef76.js",
     "static/js/2.a63dc360.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.bba45587.chunk.js"
+    "static/js/main.5a9080fa.chunk.js"
   ]
 }
