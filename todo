@@ -1,14 +1,11 @@
 Hindi
 
-DATA
-Separate arrays for phrases, words and letters to begin with
+change the data to a csv?
+tests
+screen before quiz
+use redux
+use typescript?
 
-Letters
-
-
-
-
-QUIZ
 Do we have a timer?
 Multiple choice answers
 Option to include Hindi in questions and answers
@@ -23,5 +20,4 @@ change the number of multiple choices to a question
 
 OTHER
 Favicon
-Deploy
-Check the Hindi practise repo for more things
+Check the Hindi practice repo for more things
