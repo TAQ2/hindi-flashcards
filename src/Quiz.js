@@ -5,7 +5,7 @@ import {
   calculateChoices,
   calculateCorrectAnswerTotal
 } from "./logic";
-import words from "./questions.json";
+import words from "./questions.json"; // @Cleanup - bad name
 import History from "./History";
 
 function calculateRandomRoundType() {

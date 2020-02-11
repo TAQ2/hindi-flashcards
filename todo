@@ -1,7 +1,17 @@
 Hindi
 
-use redux?
+
+synonyms
+fem plural of how is same as fem sing so how do we make sure the answer and choices are correct
+use redux? (there is a stash for it)
 results component
+gendered stuff
+plural stuff
+    - nouns are verbs have different use for it
+guessing what nouns are masc or fem
+question type
+    - seperate fron word,phrase,letter to noun,verb etc
+    - choices to questions should be affected by type
 
 OPTIONS
     - include Hindi in questions and answers

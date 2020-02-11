@@ -1,6 +1,54 @@
-english,englishPronunciation,hindi,type
-Hello,Namaste,नमस्ते,WORD
-One,Ek,एक,WORD
-Two,Do,दो,WORD
-Three,Teen,तीन,WORD
-Four,Chaar,चार,WORD
+english,englishPronunciation,hindi,gender,type
+hello,namaste,नमस्ते,,WORD
+sad,udaas,उदास,,WORD
+happy,khush,खुश
+worry,chinta,चिंता,,WORD
+again,phir,फिर,,WORD
+good,achchha,अच्छा,,WORD
+student,vidyaarthee,विद्यार्थी,,WORD
+please,krpya,कृप्या,,WORD
+thanks,dhanyavaad,धन्यवाद,,WORD
+bye,alavida,अलविदा,,WORD
+help,madad,मदद,,WORD
+all,sab,सब,,WORD
+ill,beemaar,बीमार,,WORD
+surprised,hairaan,हैरान,,WORD
+ready,taiyaar,तैयार,,WORD
+but,lekin,लेकिन,,WORD
+or,ya,या,,WORD
+and,aur,और,,WORD
+also,bhee,भी,,WORD
+hot,garam,गरम,,WORD
+rain,baarish,बारिश,,WORD
+bad,kharaab,खराब,,WORD
+very,bahut,बहुत,,WORD
+less,kam,कम
+one,ek,एक,,WORD
+two,do,दो,,WORD
+three,teen,तीन,,WORD
+four,chaar,चार,,WORD
+five,paanch,पांच,,WORD
+six,chhah,छह,,WORD
+seven,saat,सात,,WORD
+eight,aath,आठ,,WORD
+nine,nau,नौ,,WORD
+ten,das,दस,,WORD
+umbrella,chhataree,छतरी,,WORD
+waterfall,jharana,झरना,,WORD
+work,kaam,काम,M,NOUN
+family,parivaar,परिवार,M,NOUN
+food,khaana,खाना,M,NOUN
+weather,mausam,मौसम,M,NOUN
+health,sehat,सेहत,F,NOUN
+wellbeing,tabiyat,तबियत,F,NOUN
+cold,thand,ठंड,,ADJECTIVE
+to meet,meelana,मीलऩा,,VERB
+to do,karana,करना,,VERB
+to be,hona,होना,,VERB
+me too,main bhee,मैं भी,,PHRASE
+all right,theek hai,ठीक है,,PHRASE
+excuse me,maaph karen,माफ करें,,PHRASE
+see you again,phir milenge,फिर मिलेंगे,,PHRASE
+I ___ am,main hoon,मैं ___ हूँ,,PHRASE
+you ___ are,aap hain,आप ___ हैं,,PHRASE
+you take care,apana khyaal rakhana,अपना ख्याल रखना,,PHRASE
