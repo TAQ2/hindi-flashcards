@@ -1,22 +1,22 @@
 Hindi
 
-change the data to a csv?
-tests
-screen before quiz
 use redux
-use typescript?
+results component
 
-Do we have a timer?
-Multiple choice answers
-Option to include Hindi in questions and answers
-Option for how many questions
-Option for continuous questions
-Way of showing the history at any time
-Showing the history at the end of the test
+OPTIONS
+    - include Hindi in questions and answers
+    - how many questions
+    - continuous questions
+    - whether to include phrases, words and letters
 
 NICE TO HAVE
+Do we have a timer?
 change the number of multiple choices to a question
+can we get a hindi audio from google? or embed it for use?
 
+TECH
+tests
+use typescript?
 
 OTHER
 Favicon

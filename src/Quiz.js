@@ -6,6 +6,7 @@ import {
   calculateCorrectAnswerTotal
 } from "./logic";
 import words from "./questions.json";
+import History from "./History";
 
 function App() {
   const [history, setHistory] = useState([]);
@@ -43,6 +44,7 @@ function App() {
         <div>End of questions</div>
         <div>Number of correct{correctAnswerTotal}</div>
         <div>Total{history.length}</div>
+        <History history={history} />
       </div>
     );
   }
@@ -76,6 +78,10 @@ function App() {
       <br />
       <div>Number of correct{correctAnswerTotal}</div>
       <div>Total{history.length}</div>
+      <br />
+      <br />
+      <br />
+      <History history={history} />
     </div>
   );
 }
