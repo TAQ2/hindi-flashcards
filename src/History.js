@@ -22,7 +22,7 @@ export default function History({ history }) {
             fontSize: "2em"
           }}
         >
-          <span>{round.question.english}</span>
+          <span>{round.question[round.type[0]]}</span>
           {round.choices.map((choice, i) => {
             let color = "black";
 
@@ -37,7 +37,7 @@ export default function History({ history }) {
 
             return (
               <span key={i} style={{ color }}>
-                {choice.englishPronunciation}
+                {choice[round.type[1]]}
               </span>
             );
           })}

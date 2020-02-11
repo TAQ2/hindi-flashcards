@@ -8,10 +8,31 @@ import {
 import words from "./questions.json";
 import History from "./History";
 
-function App() {
+function calculateRandomRoundType() {
+  let roundType = ["english", "englishPronunciation"]; // @Cleanup - strings should be constants
+
+  const int = Math.floor(Math.random() * 6); // generates int between 0 and 5
+
+  if (int === 1) {
+    roundType = ["english", "hindi"];
+  } else if (int === 2) {
+    roundType = ["hindi", "english"];
+  } else if (int === 3) {
+    roundType = ["hindi", "englishPronunciation"];
+  } else if (int === 4) {
+    roundType = ["englishPronunciation", "english"];
+  } else if (int === 5) {
+    roundType = ["englishPronunciation", "hindi"];
+  }
+
+  return roundType;
+}
+
+function Quiz() {
   const [history, setHistory] = useState([]);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [roundType, setRoundType] = useState(calculateRandomRoundType());
   const [questions, setQuestions] = useState(shuffle([...words]));
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   const currentQuestion = questions[questions.length - 1];
   const [choices, setChoices] = useState(
@@ -26,7 +47,8 @@ function App() {
         questionType: "WORD",
         question,
         choices,
-        answer
+        answer,
+        type: roundType
         // @Incomplete - whether the question was asked in english or hindi or english pronunciation
       }
     ]);
@@ -34,6 +56,8 @@ function App() {
     const newQuestions = questions.filter((_, i) => i !== questions.length - 1); // @Cleanup - probably a better way to do that
     setQuestions(newQuestions);
     setChoices(calculateChoices(newQuestions[newQuestions.length - 1], words));
+
+    setRoundType(calculateRandomRoundType());
   };
 
   const correctAnswerTotal = calculateCorrectAnswerTotal(history);
@@ -51,7 +75,7 @@ function App() {
 
   return (
     <div>
-      <div>{currentQuestion.english}</div>
+      <div>{currentQuestion[roundType[0]]}</div>
       <br />
       {choices.map((choice, i) => (
         <div
@@ -59,7 +83,7 @@ function App() {
           onClick={() => setSelectedAnswer(choice)}
           style={{ color: selectedAnswer === choice ? "red" : "black" }}
         >
-          {choice.englishPronunciation}
+          {choice[roundType[1]]}
         </div>
       ))}
       {selectedAnswer != null && (
@@ -86,4 +110,4 @@ function App() {
   );
 }
 
-export default App;
+export default Quiz;
