@@ -2,19 +2,19 @@ import React, { useState } from "react";
 
 import Quiz from "./Quiz";
 import words from "./questions.json";
-import SetupScreen from "./SetupScreen";
+import StartScreen from "./StartScreen";
 
 export default function App() {
   const [hasStarted, setHasStarted] = useState(false);
   const [config, setConfig] = useState({
-    questionCount: words.length
+    roundCount: words.length
   });
 
   if (hasStarted) {
-    return <Quiz />;
+    return <Quiz config={config} />;
   } else {
     return (
-      <SetupScreen
+      <StartScreen
         setHasStarted={setHasStarted}
         config={config}
         setConfig={setConfig}

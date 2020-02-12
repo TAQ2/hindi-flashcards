@@ -5,7 +5,11 @@ ADD LETTERS
 
 
 DEADLINE
+- basic config
+    - number of questions
+    - number of choices
 - design
+- explore embedding google translate
 
 typescript?
 use redux? (there is a stash for it)
@@ -46,3 +50,4 @@ use typescript?
 OTHER
 Favicon
 Check the Hindi practice repo for more things
+Do the readme

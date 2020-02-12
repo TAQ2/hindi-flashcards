@@ -32,10 +32,12 @@ function calculateRandomRoundType() {
   return roundType;
 }
 
-function Quiz() {
+function Quiz({ config }) {
   const [history, setHistory] = useState([]);
   const [roundType, setRoundType] = useState(calculateRandomRoundType());
-  const [questions, setQuestions] = useState(shuffle([...words]));
+  const [questions, setQuestions] = useState(
+    shuffle([...words]).slice(0, config.roundCount)
+  );
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   const currentQuestion = questions[questions.length - 1];
@@ -106,6 +108,7 @@ function Quiz() {
       <br />
       <div>Number of correct {correctAnswerTotal}</div>
       <div>Total {history.length}</div>
+      <div>Out of {config.roundCount}</div>
       <br />
       <br />
       <br />
