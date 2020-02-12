@@ -1,25 +1,40 @@
 Hindi
 
+SEPERATE OUT WHAT IS REVISION AND WHAT IS COMPLETING THE PROJECT
+ADD LETTERS
 
-synonyms
-fem plural of how is same as fem sing so how do we make sure the answer and choices are correct
+
+DEADLINE
+- design
+
+typescript?
 use redux? (there is a stash for it)
 results component
-gendered stuff
-plural stuff
-    - nouns are verbs have different use for it
-guessing what nouns are masc or fem
+
+does it make sense to have hindi -> eng pronounce or vice versa
+allow to practice phrases from a given class week? 
+enable phrases
+enable english pronounciation?
+
+ISSUES WITH DATA STRUCTURE
+    - synonyms
+    - fem plural of how is same as fem sing so how do we make sure the answer and choices are correct
+    - seperate from word,phrase,letter to noun,verb etc to enable choices that are more appropriate
+    - gendered stuff
+    - plural stuff
+        - nouns are verbs have different use for it
+        -guessing what nouns are masc or fem
+
 question type
-    - seperate fron word,phrase,letter to noun,verb etc
     - choices to questions should be affected by type
 
 OPTIONS
-    - include Hindi in questions and answers
     - how many questions
     - continuous questions
     - whether to include phrases, words and letters
 
 NICE TO HAVE
+Option to type the word instead
 Do we have a timer?
 change the number of multiple choices to a question
 can we get a hindi audio from google? or embed it for use?
