@@ -8,22 +8,26 @@ import {
 import words from "./questions.json"; // @Cleanup - bad name
 import History from "./History";
 
+// @Cleanup - strings in the function should be constants
 function calculateRandomRoundType() {
-  let roundType = ["english", "englishPronunciation"]; // @Cleanup - strings should be constants
+  const int = Math.floor(Math.random() * 2); // generates int between 0 and 5
 
-  const int = Math.floor(Math.random() * 6); // generates int between 0 and 5
-
-  if (int === 1) {
-    roundType = ["english", "hindi"];
-  } else if (int === 2) {
+  let roundType;
+  if (int === 0) {
     roundType = ["hindi", "english"];
-  } else if (int === 3) {
-    roundType = ["hindi", "englishPronunciation"];
-  } else if (int === 4) {
-    roundType = ["englishPronunciation", "english"];
-  } else if (int === 5) {
-    roundType = ["englishPronunciation", "hindi"];
+  } else if (int === 1) {
+    roundType = ["english", "hindi"];
   }
+  // else if (int === 2) {
+  //   roundType = ["english", "englishPronunciation"];
+  // } else if (int === 3) {
+  //   roundType = ["englishPronunciation", "english"];
+  // }
+  // else if (int === 4) {
+  //   roundType = ["hindi", "englishPronunciation"];
+  // } else if (int === 5) {
+  //   roundType = ["englishPronunciation", "hindi"];
+  // }
 
   return roundType;
 }
