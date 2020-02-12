@@ -16,10 +16,10 @@ export function shuffle(array) {
   return array;
 }
 
-export function calculateChoices(answer, words) {
+export function calculateChoices(answer, words, choiceCount) {
   const choices = [answer];
 
-  while (choices.length !== 3) {
+  while (choices.length !== choiceCount) {
     const index = randomInt(words.length);
 
     if (!choices.includes(words[index])) {

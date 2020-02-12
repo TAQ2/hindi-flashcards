@@ -27,19 +27,30 @@ export default function SetupScreen({ setHasStarted, config, setConfig }) {
   return (
     <div>
       <div>Hindi Flashcards</div>
+      <br />
+      <br />
+      <br />
+      How many Questions?
       <div>
         <input
           name="roundCount"
           onChange={handleUpdateConfig}
           value={config.roundCount}
         />
-
         <button
           onClick={handleUseAllWords}
           disabled={words.length === config.roundCount}
         >
           All
         </button>
+      </div>
+      How many multiple choice answers?
+      <div>
+        <input // @Incomplete - make this into a slider so that we have a forced min and max
+          name="choiceCount"
+          onChange={handleUpdateConfig}
+          value={config.choiceCount}
+        />
       </div>
       <button onClick={() => setHasStarted(true)}>Start</button>
     </div>

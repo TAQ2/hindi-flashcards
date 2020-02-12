@@ -42,7 +42,7 @@ function Quiz({ config }) {
 
   const currentQuestion = questions[questions.length - 1];
   const [choices, setChoices] = useState(
-    calculateChoices(currentQuestion, words)
+    calculateChoices(currentQuestion, words, config.choiceCount)
   );
 
   const handleConfirmAnswer = (question, choices, answer) => () => {
@@ -61,7 +61,13 @@ function Quiz({ config }) {
 
     const newQuestions = questions.filter((_, i) => i !== questions.length - 1); // @Cleanup - probably a better way to do that
     setQuestions(newQuestions);
-    setChoices(calculateChoices(newQuestions[newQuestions.length - 1], words));
+    setChoices(
+      calculateChoices(
+        newQuestions[newQuestions.length - 1],
+        words,
+        config.choiceCount
+      )
+    );
 
     setRoundType(calculateRandomRoundType());
   };

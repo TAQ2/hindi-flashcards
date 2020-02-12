@@ -5,11 +5,13 @@ ADD LETTERS
 
 
 DEADLINE
-- basic config
-    - number of questions
-    - number of choices
-- design
+- make sliders for config
+- check that adding questions doesn't mess up the config for round count
+- Link to github
 - explore embedding google translate
+- design
+- Do the readme
+- Favicon
 
 typescript?
 use redux? (there is a stash for it)
@@ -48,6 +50,5 @@ tests
 use typescript?
 
 OTHER
-Favicon
+
 Check the Hindi practice repo for more things
-Do the readme
