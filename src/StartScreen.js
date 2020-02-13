@@ -12,18 +12,6 @@ export default function SetupScreen({ setHasStarted, config, setConfig }) {
     };
   }, [setHasStarted]);
 
-  const handleUpdateConfig = e => {
-    // @Incomplete - use a slider to avoid validation stuff
-    setConfig({
-      ...config,
-      [e.currentTarget.name]: parseInt(e.currentTarget.value, 10)
-    });
-  };
-
-  const handleUseAllWords = () => {
-    setConfig({ ...config, roundCount: words.length });
-  };
-
   return (
     <div>
       <div>Hindi Flashcards</div>
@@ -33,24 +21,34 @@ export default function SetupScreen({ setHasStarted, config, setConfig }) {
       How many Questions?
       <div>
         <input
-          name="roundCount"
-          onChange={handleUpdateConfig}
+          type="range"
+          min={1}
+          max={words.length}
           value={config.roundCount}
+          onChange={e =>
+            setConfig({
+              ...config,
+              roundCount: parseInt(e.currentTarget.value)
+            })
+          }
         />
-        <button
-          onClick={handleUseAllWords}
-          disabled={words.length === config.roundCount}
-        >
-          All
-        </button>
+        {config.roundCount}
       </div>
       How many multiple choice answers?
       <div>
-        <input // @Incomplete - make this into a slider so that we have a forced min and max
-          name="choiceCount"
-          onChange={handleUpdateConfig}
+        <input
+          type="range"
+          min={2}
+          max={8}
           value={config.choiceCount}
+          onChange={e =>
+            setConfig({
+              ...config,
+              choiceCount: parseInt(e.currentTarget.value)
+            })
+          }
         />
+        {config.choiceCount}
       </div>
       <button onClick={() => setHasStarted(true)}>Start</button>
     </div>
