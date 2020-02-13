@@ -32,7 +32,7 @@ function calculateRandomRoundType() {
   return roundType;
 }
 
-function Quiz({ config }) {
+function Quiz({ config, setHasStarted }) {
   const [history, setHistory] = useState([]);
   const [roundType, setRoundType] = useState(calculateRandomRoundType());
   const [questions, setQuestions] = useState(
@@ -75,12 +75,16 @@ function Quiz({ config }) {
   const correctAnswerTotal = calculateCorrectAnswerTotal(history);
 
   if (questions.length === 0) {
+    // @Cleanup - make results into new file
+    // @Cleanup - should this new file be rendered by App.js instead of Quiz.js
+
     return (
       <div>
         <div>End of questions</div>
         <div>Number of correct {correctAnswerTotal}</div>
         <div>Total {history.length}</div>
         <History history={history} />
+        <button onClick={() => setHasStarted(false)}>Restart</button>
       </div>
     );
   }
@@ -119,6 +123,7 @@ function Quiz({ config }) {
       <br />
       <br />
       <History history={history} />
+      <button onClick={() => setHasStarted(false)}>Restart</button>
     </div>
   );
 }

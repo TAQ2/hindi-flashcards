@@ -12,7 +12,7 @@ export default function App() {
   });
 
   if (hasStarted) {
-    return <Quiz config={config} />;
+    return <Quiz config={config} setHasStarted={setHasStarted} />;
   } else {
     return (
       <StartScreen
