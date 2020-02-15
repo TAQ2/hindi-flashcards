@@ -3,11 +3,11 @@ import styled from "styled-components";
 
 import { colours, screenBreakpoints } from "./theme";
 import words from "./questions.json"; // @Cleanup - words is a bad name
+import Button from "./Button";
 
 const Title = styled.div`
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: bold;
-  margin-bottom: 4rem;
   color: ${colours.primary};
   text-decoration: underline;
 
@@ -50,35 +50,44 @@ export default function SetupScreen({ setHasStarted, config, setConfig }) {
         textAlign: "center",
         maxWidth: screenBreakpoints.maxContentWidth,
         margin: "0 auto",
-        paddingTop: "4rem"
+        paddingTop: "4rem",
+        height: "100vh"
       }}
     >
-      <Title>Hindi Flashcards</Title>
-      <div style={{ marginBottom: "3rem" }}>
-        <div
-          style={{
-            fontSize: "1.5rem",
-            color: colours.primary,
-            marginBottom: "1rem"
-          }}
-        >
-          {config.roundCount} Questions
-        </div>
-        <div>
-          <Slider
-            type="range"
-            min={1}
-            max={words.length}
-            value={config.roundCount}
-            onChange={e =>
-              setConfig({
-                ...config,
-                roundCount: parseInt(e.currentTarget.value)
-              })
-            }
-          />
-        </div>
-        {/* <div
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          flexDirection: "column",
+          height: "100%"
+        }}
+      >
+        <Title>Hindi Flashcards</Title>
+        <div style={{ marginBottom: "3rem" }}>
+          <div
+            style={{
+              fontSize: "1.5rem",
+              color: colours.primary,
+              marginBottom: "1rem"
+            }}
+          >
+            {config.roundCount} Questions
+          </div>
+          <div>
+            <Slider
+              type="range"
+              min={1}
+              max={words.length}
+              value={config.roundCount}
+              onChange={e =>
+                setConfig({
+                  ...config,
+                  roundCount: parseInt(e.currentTarget.value)
+                })
+              }
+            />
+          </div>
+          {/* <div
         style={{
           fontSize: "1.5rem",
           color: colours.primary,
@@ -106,21 +115,11 @@ export default function SetupScreen({ setHasStarted, config, setConfig }) {
           }
         />
       </div> */}
+        </div>
+        <div style={{ marginBottom: "2rem" }}>
+          <Button onClick={() => setHasStarted(true)}>Start</Button>
+        </div>
       </div>
-      <button
-        onClick={() => setHasStarted(true)}
-        style={{
-          fontSize: "2rem",
-          backgroundColor: colours.quinary,
-          borderRadius: 5,
-          border: "4px solid " + colours.secondary,
-          color: colours.secondary,
-          padding: "0.2rem 1rem",
-          cursor: "pointer"
-        }}
-      >
-        Start
-      </button>
     </div>
   );
 }

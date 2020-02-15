@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { FaTimes, FaCheck } from "react-icons/fa";
 
 import {
   shuffle,
@@ -9,15 +10,51 @@ import {
 import words from "./questions.json"; // @Cleanup - bad name
 import History from "./History";
 import { colours, screenBreakpoints } from "./theme";
+import Button from "./Button";
+
+const ResultsContainer = styled.div`
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  color: ${colours.tertiary};
+
+  @media (max-width: ${screenBreakpoints.tablet}px) {
+    margin-bottom: 2rem;
+  }
+`;
+
+const QuestionWord = styled.div`
+  color: ${colours.primary};
+  // margin-bottom: 10rem;
+  font-size: 7rem;
+  // set lineheight because the set default between english and hindi is different @Cleanup
+  line-height: 8rem;
+
+  @media (max-width: ${screenBreakpoints.tablet}px) {
+    margin-bottom: 5rem;
+    font-size: 6rem;
+    // set lineheight because the set default between english and hindi is different @Cleanup
+    line-height: 6rem;
+  }
+
+  @media (max-width: ${screenBreakpoints.small}px) {
+    margin-bottom: 3rem;
+    font-size: 5rem;
+    // set lineheight because the set default between english and hindi is different @Cleanup
+    line-height: 5rem;
+  }
+`;
 
 const Choice = styled.div`
-  text-decoration: ${({ isSelected }) => (isSelected ? "underline" : "none")};
-  font-size: 2rem;
-  // set lineheight because the set default between english and hindi is different
+  font-size: 3rem;
   line-height: 3rem;
+  cursor: pointer;
+  padding: 0 1rem;
+  width: 22%;
 
   @media (max-width: ${screenBreakpoints.tablet}px) {
     margin-bottom: 1rem;
+    width: 100%;
   }
 `;
 
@@ -25,10 +62,11 @@ const ChoicesContainer = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 0 4rem 8rem 4rem;
+  color: ${colours.tertiary};
 
   @media (max-width: ${screenBreakpoints.tablet}px) {
     flex-direction: column;
+    margin: 0 auto;
   }
 `;
 
@@ -72,20 +110,20 @@ function Quiz({ config, setHasStarted }) {
     calculateChoices(currentQuestion, words, config.choiceCount)
   );
 
-  const handleConfirmAnswer = (question, choices, answer) => () => {
-    setSelectedAnswer(null);
+  const handleConfirmAnswer = () => () => {
     setHistory([
       ...history,
       {
         questionType: "WORD",
-        question,
+        question: currentQuestion,
         choices,
-        answer,
+        answer: selectedAnswer,
         type: roundType
         // @Incomplete - whether the question was asked in english or hindi or english pronunciation
       }
     ]);
 
+    setSelectedAnswer(null);
     const newQuestions = questions.filter((_, i) => i !== questions.length - 1); // @Cleanup - probably a better way to do that
     setQuestions(newQuestions);
     setChoices(
@@ -99,6 +137,18 @@ function Quiz({ config, setHasStarted }) {
     setRoundType(calculateRandomRoundType());
   };
 
+  useEffect(() => {
+    const keyPressHandler = ({ key }) =>
+      key === "Enter" && selectedAnswer !== null && handleConfirmAnswer()();
+    window.addEventListener("keydown", keyPressHandler);
+    return () => {
+      window.removeEventListener("keydown", keyPressHandler);
+    };
+
+    // @Cleanup - https://stackoverflow.com/questions/55840294/how-to-fix-missing-dependency-warning-when-using-useeffect-react-hook
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedAnswer]);
+
   const correctAnswerTotal = calculateCorrectAnswerTotal(history);
 
   if (displayHistory) {
@@ -109,19 +159,13 @@ function Quiz({ config, setHasStarted }) {
       />
     );
   }
-
   if (questions.length === 0) {
-    // @Cleanup - make results into new file
-    // @Cleanup - should this new file be rendered by App.js instead of Quiz.js
-
     return (
-      <div>
-        <div>End of questions</div>
-        <div>Number of correct {correctAnswerTotal}</div>
-        <div>Total {history.length}</div>
-        <History history={history} />
-        <button onClick={() => setHasStarted(false)}>Restart</button>
-      </div>
+      <History
+        history={history}
+        handleExitHistory={() => setHasStarted(false)}
+        isResults
+      />
     );
   }
 
@@ -134,103 +178,90 @@ function Quiz({ config, setHasStarted }) {
           right: 10
         }}
       >
-        <button
+        <Button
           onClick={() => setDisplayHistory(true)}
-          style={{
-            // @Cleanup - the following style is copied from button on start page
-            fontSize: "1rem",
-            border: "2px solid " + colours.secondary,
-            backgroundColor: colours.quinary,
-            borderRadius: 5,
-            color: colours.secondary,
-            padding: "0.2rem 1rem",
-            cursor: "pointer",
-            marginRight: "0.7rem"
-          }}
+          isSmall
+          style={{ marginRight: "0.7rem" }}
+          disabled={history.length === 0}
         >
           History
-        </button>
-        <button
-          onClick={() => setHasStarted(false)}
-          style={{
-            // @Cleanup - the following style is copied from button on start page
-            fontSize: "1rem",
-            border: "2px solid " + colours.secondary,
-            backgroundColor: colours.quinary,
-            borderRadius: 5,
-            color: colours.secondary,
-            padding: "0.2rem 1rem",
-            cursor: "pointer"
-          }}
-        >
+        </Button>
+        <Button onClick={() => setHasStarted(false)} isSmall>
           Restart
-        </button>
+        </Button>
       </div>
       <div
         style={{
           textAlign: "center",
           maxWidth: screenBreakpoints.maxContentWidth,
           margin: "0 auto",
-          paddingTop: "4rem"
+          paddingTop: "4rem",
+          display: "flex",
+          flexDirection: "column",
+          height: "100vh"
         }}
       >
         <div
           style={{
             display: "flex",
-            justifyContent: "space-around",
-            marginBottom: "4rem"
+            flexDirection: "column",
+            justifyContent: "space-between",
+            height: "100%"
           }}
         >
-          <div>Correct answers {correctAnswerTotal}</div>
-          <div>
-            {history.length + 1} out of {config.roundCount} questions
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-around"
+            }}
+          >
+            <ResultsContainer>
+              <FaCheck />
+              <span
+                style={{
+                  marginLeft: "1rem",
+                  marginRight: "3rem"
+                }}
+              >
+                {correctAnswerTotal}
+              </span>
+              <FaTimes />
+              <span style={{ marginLeft: "1rem" }}>
+                {history.length - correctAnswerTotal}
+              </span>
+            </ResultsContainer>
+          </div>
+          <QuestionWord>{currentQuestion[roundType[0]]}</QuestionWord>
+
+          <ChoicesContainer>
+            {choices.map((choice, i) => (
+              <Choice key={i} onClick={() => setSelectedAnswer(choice)}>
+                <div
+                  style={{
+                    borderBottom:
+                      selectedAnswer === choice ? "2px solid" : "none",
+                    display: "inline"
+                  }}
+                >
+                  {choice[roundType[1]]}
+                </div>
+              </Choice>
+            ))}
+          </ChoicesContainer>
+          <div />
+          <div style={{ marginBottom: "2rem" }}>
+            <Button
+              onClick={handleConfirmAnswer(
+                currentQuestion,
+                choices,
+                selectedAnswer
+              )}
+              disabled={selectedAnswer == null}
+            >
+              Confirm
+            </Button>
           </div>
         </div>
-        <div
-          style={{
-            fontSize: "5rem",
-            marginBottom: "8rem",
-            // set lineheight because the set default between english and hindi is different
-            lineHeight: "7rem"
-          }}
-        >
-          {currentQuestion[roundType[0]]}
-        </div>
-        <ChoicesContainer>
-          {choices.map((choice, i) => (
-            <Choice
-              key={i}
-              onClick={() => setSelectedAnswer(choice)}
-              isSelected={selectedAnswer === choice}
-            >
-              {choice[roundType[1]]}
-            </Choice>
-          ))}
-        </ChoicesContainer>
-
-        <button
-          onClick={handleConfirmAnswer(
-            currentQuestion,
-            choices,
-            selectedAnswer
-          )}
-          disabled={selectedAnswer == null}
-          style={{
-            // @Cleanup - other buttons are the same style
-            fontSize: "2rem",
-            backgroundColor: colours.quinary,
-            borderRadius: 5,
-            border:
-              "4px solid " +
-              (selectedAnswer != null ? colours.secondary : "gray"),
-            color: selectedAnswer != null ? colours.secondary : "gray",
-            padding: "0.2rem 1rem",
-            cursor: selectedAnswer != null ? "pointer" : "auto"
-          }}
-        >
-          Confirm
-        </button>
-        {/* <History history={history} /> */}
       </div>
     </>
   );

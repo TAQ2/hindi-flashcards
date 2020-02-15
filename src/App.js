@@ -32,7 +32,7 @@ export default function App() {
       style={{
         backgroundColor: colours.quinary,
         width: "100vw",
-        height: "100vh"
+        minHeight: "100vh"
       }}
     >
       {renderScreen()}
