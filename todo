@@ -1,23 +1,20 @@
 Hindi
 
 SEPERATE OUT WHAT IS REVISION AND WHAT IS COMPLETING THE PROJECT
-ADD LETTERS
-
 
 DEADLINE
-- explore embedding google translate
 - design
 - Do the readme
 - Favicon
+- does hindi flashcards make sense as a name?
 
 typescript?
 use redux? (there is a stash for it)
 results component
 
+add letters?
 does it make sense to have hindi -> eng pronounce or vice versa
 allow to practice phrases from a given class week? 
-enable phrases
-enable english pronounciation?
 
 ISSUES WITH DATA STRUCTURE
     - synonyms
@@ -29,14 +26,14 @@ ISSUES WITH DATA STRUCTURE
         -guessing what nouns are masc or fem
 
 question type
+    - enable phrases
     - choices to questions should be affected by type
 
 OPTIONS
-    - how many questions
-    - continuous questions
     - whether to include phrases, words and letters
 
 NICE TO HAVE
+explore embedding google translate
 Option to type the word instead
 Do we have a timer?
 change the number of multiple choices to a question

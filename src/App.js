@@ -4,12 +4,13 @@ import { FaGithub } from "react-icons/fa";
 import Quiz from "./Quiz";
 import words from "./questions.json";
 import StartScreen from "./StartScreen";
+import { colours } from "./theme";
 
 export default function App() {
   const [hasStarted, setHasStarted] = useState(false);
   const [config, setConfig] = useState({
-    roundCount: words.length,
-    choiceCount: 3
+    roundCount: Math.ceil(words.length / 2),
+    choiceCount: 4
   });
 
   const renderScreen = () => {
@@ -27,7 +28,13 @@ export default function App() {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: colours.quinary,
+        width: "100vw",
+        height: "100vh"
+      }}
+    >
       {renderScreen()}
       <a
         target="_blank"
@@ -35,8 +42,13 @@ export default function App() {
         href="https://www.github.com/taq2/hindi-flashcards"
       >
         <FaGithub
-          size="4em"
-          style={{ position: "fixed", bottom: 10, right: 10, color: "black" }}
+          style={{
+            position: "fixed",
+            bottom: 10,
+            right: 10,
+            color: "black",
+            fontSize: "3rem"
+          }}
         />
       </a>
     </div>
