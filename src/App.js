@@ -4,12 +4,13 @@ import { FaGithub } from "react-icons/fa";
 import Quiz from "./Quiz";
 import words from "./questions.json";
 import StartScreen from "./StartScreen";
-import { colours } from "./theme";
+
+import { screenBreakpoints } from "./theme";
 
 export default function App() {
   const [hasStarted, setHasStarted] = useState(false);
   const [config, setConfig] = useState({
-    roundCount: Math.ceil(words.length / 2),
+    roundCount: words.length,
     choiceCount: 4
   });
 
@@ -28,14 +29,16 @@ export default function App() {
   };
 
   return (
-    <div
-      style={{
-        backgroundColor: colours.quinary,
-        width: "100vw",
-        minHeight: "100vh"
-      }}
-    >
-      {renderScreen()}
+    <>
+      <div
+        style={{
+          height: "100%",
+          maxWidth: screenBreakpoints.maxContentWidth,
+          margin: "0 auto"
+        }}
+      >
+        {renderScreen()}
+      </div>
       <a
         target="_blank"
         rel="noopener noreferrer"
@@ -51,6 +54,6 @@ export default function App() {
           }}
         />
       </a>
-    </div>
+    </>
   );
 }

@@ -80,10 +80,8 @@ export default function History({ history, handleExitHistory, isResults }) {
         style={{
           padding: "4rem 0",
           margin: "0 auto",
-          maxWidth: screenBreakpoints.maxContentWidth,
           display: "flex",
-          flexDirection: "column",
-          minHeight: "100vh"
+          flexDirection: "column"
         }}
       >
         {isResults && (

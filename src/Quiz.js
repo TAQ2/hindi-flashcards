@@ -31,14 +31,14 @@ const QuestionWord = styled.div`
   line-height: 8rem;
 
   @media (max-width: ${screenBreakpoints.tablet}px) {
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
     font-size: 6rem;
     // set lineheight because the set default between english and hindi is different @Cleanup
     line-height: 6rem;
   }
 
   @media (max-width: ${screenBreakpoints.small}px) {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     font-size: 5rem;
     // set lineheight because the set default between english and hindi is different @Cleanup
     line-height: 5rem;
@@ -51,6 +51,7 @@ const Choice = styled.div`
   cursor: pointer;
   padding: 0 1rem;
   width: 22%;
+  -webkit-tap-highlight-color: transparent;
 
   @media (max-width: ${screenBreakpoints.tablet}px) {
     margin-bottom: 1rem;
@@ -114,7 +115,7 @@ function Quiz({ config, setHasStarted }) {
     setHistory([
       ...history,
       {
-        questionType: "WORD",
+        questionType: "WORD", // @Cleanup - ???
         question: currentQuestion,
         choices,
         answer: selectedAnswer,
@@ -193,74 +194,64 @@ function Quiz({ config, setHasStarted }) {
       <div
         style={{
           textAlign: "center",
-          maxWidth: screenBreakpoints.maxContentWidth,
-          margin: "0 auto",
           paddingTop: "4rem",
           display: "flex",
           flexDirection: "column",
-          height: "100vh"
+          height: "100%",
+          justifyContent: "space-between"
         }}
       >
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            height: "100%"
+            justifyContent: "space-around"
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-around"
-            }}
-          >
-            <ResultsContainer>
-              <FaCheck />
-              <span
+          <ResultsContainer>
+            <FaCheck />
+            <span
+              style={{
+                marginLeft: "1rem",
+                marginRight: "3rem"
+              }}
+            >
+              {correctAnswerTotal}
+            </span>
+            <FaTimes />
+            <span style={{ marginLeft: "1rem" }}>
+              {history.length - correctAnswerTotal}
+            </span>
+          </ResultsContainer>
+        </div>
+        <QuestionWord>{currentQuestion[roundType[0]]}</QuestionWord>
+
+        <ChoicesContainer>
+          {choices.map((choice, i) => (
+            <Choice key={i} onClick={() => setSelectedAnswer(choice)}>
+              <div
                 style={{
-                  marginLeft: "1rem",
-                  marginRight: "3rem"
+                  borderBottom:
+                    selectedAnswer === choice ? "2px solid" : "none",
+                  display: "inline"
                 }}
               >
-                {correctAnswerTotal}
-              </span>
-              <FaTimes />
-              <span style={{ marginLeft: "1rem" }}>
-                {history.length - correctAnswerTotal}
-              </span>
-            </ResultsContainer>
-          </div>
-          <QuestionWord>{currentQuestion[roundType[0]]}</QuestionWord>
-
-          <ChoicesContainer>
-            {choices.map((choice, i) => (
-              <Choice key={i} onClick={() => setSelectedAnswer(choice)}>
-                <div
-                  style={{
-                    borderBottom:
-                      selectedAnswer === choice ? "2px solid" : "none",
-                    display: "inline"
-                  }}
-                >
-                  {choice[roundType[1]]}
-                </div>
-              </Choice>
-            ))}
-          </ChoicesContainer>
-          <div />
-          <div style={{ marginBottom: "2rem" }}>
-            <Button
-              onClick={handleConfirmAnswer(
-                currentQuestion,
-                choices,
-                selectedAnswer
-              )}
-              disabled={selectedAnswer == null}
-            >
-              Confirm
-            </Button>
-          </div>
+                {choice[roundType[1]]}
+              </div>
+            </Choice>
+          ))}
+        </ChoicesContainer>
+        <div />
+        <div style={{ marginBottom: "2rem" }}>
+          <Button
+            onClick={handleConfirmAnswer(
+              currentQuestion,
+              choices,
+              selectedAnswer
+            )}
+            disabled={selectedAnswer == null}
+          >
+            Confirm
+          </Button>
         </div>
       </div>
     </>

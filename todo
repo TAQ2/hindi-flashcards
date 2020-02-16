@@ -1,10 +1,7 @@
 Hindi
 
 DEADLINE
-- need another config otherwise it looks strange - perhaps use a timer?
-- slider design
 - colour design is crap
-- main heading looks boring?
 - check other browsers
 - check mobile
 - update website
@@ -40,6 +37,8 @@ OPTIONS
     - whether to include phrases, words and letters
 
 NICE TO HAVE
+- need another config otherwise it looks strange - perhaps use a timer?
+- slider design
 - progress bar of kinds?
 explore embedding google translate
 Option to type the word instead

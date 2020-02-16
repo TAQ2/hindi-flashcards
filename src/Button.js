@@ -9,4 +9,5 @@ export default styled.button`
   cursor: ${({ disabled }) => (disabled ? "auto" : "pointer")};
   border: ${({ isSmall }) => (isSmall ? 2 : 4)}px solid;
   font-size: ${({ isSmall }) => (isSmall ? 1 : 2)}rem;
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
 `;
