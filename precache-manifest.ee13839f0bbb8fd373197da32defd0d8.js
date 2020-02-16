@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8a90c3eaa7414e8aa7b7c3f9f34f5a38",
+    "revision": "02200682894fb6c15d341f794a63bbf0",
     "url": "/hindi-flashcards/index.html"
   },
   {
-    "revision": "cff49396f4070bc7f4ce",
+    "revision": "1db4ab49a9797f6b727c",
     "url": "/hindi-flashcards/static/css/main.4d27b67e.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/hindi-flashcards/static/js/2.b854764d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "cff49396f4070bc7f4ce",
-    "url": "/hindi-flashcards/static/js/main.2276e1e7.chunk.js"
+    "revision": "1db4ab49a9797f6b727c",
+    "url": "/hindi-flashcards/static/js/main.610839c9.chunk.js"
   },
   {
     "revision": "1380c2959d057849740e",
