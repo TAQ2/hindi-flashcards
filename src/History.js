@@ -87,7 +87,13 @@ export default function History({ history, handleExitHistory, isResults }) {
         }}
       >
         {isResults && (
-          <div style={{ fontSize: "2rem", textAlign: "center" }}>
+          <div
+            style={{
+              fontSize: "2rem",
+              textAlign: "center",
+              color: colours.tertiary
+            }}
+          >
             Congratulations! You got {calculateCorrectAnswerTotal(history)} out
             of {history.length} correct.
           </div>
@@ -129,7 +135,6 @@ export default function History({ history, handleExitHistory, isResults }) {
             </div>
           ))}
         </LargeContainer>
-
         <SmallContainer>
           {history.map((
             round, // @Cleanup - round is different terminolgy

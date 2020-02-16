@@ -1,17 +1,17 @@
 Hindi
 
+DEADLINE
+- need another config otherwise it looks strange - perhaps use a timer?
+- slider design
+- colour design is crap
+- main heading looks boring?
+- check other browsers
+- check mobile
+- update website
+- Favicon
 
-slider design
 
 SEPERATE OUT WHAT IS REVISION AND WHAT IS COMPLETING THE PROJECT
-
-DEADLINE
-- design
-- progress bar of kinds?
-- Do the readme
-- Favicon
-- does hindi flashcards make sense as a name?
-
 typescript?
 use redux? (there is a stash for it)
 results component
@@ -19,6 +19,9 @@ results component
 add letters?
 does it make sense to have hindi -> eng pronounce or vice versa
 allow to practice phrases from a given class week? 
+
+
+Readme needs more work - suggests we need to do some tests
 
 ISSUES WITH DATA STRUCTURE
     - synonyms
@@ -37,7 +40,7 @@ OPTIONS
     - whether to include phrases, words and letters
 
 NICE TO HAVE
-enter to submit question
+- progress bar of kinds?
 explore embedding google translate
 Option to type the word instead
 Do we have a timer?

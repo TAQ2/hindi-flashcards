@@ -6,17 +6,16 @@ import words from "./questions.json"; // @Cleanup - words is a bad name
 import Button from "./Button";
 
 const Title = styled.div`
-  font-size: 5rem;
+  font-size: 9rem;
   font-weight: bold;
   color: ${colours.primary};
-  text-decoration: underline;
 
   @media (max-width: ${screenBreakpoints.tablet}px) {
-    font-size: 3rem;
+    font-size: 7rem;
   }
 
   @media (max-width: ${screenBreakpoints.small}px) {
-    font-size: 2.5rem;
+    font-size: 4rem;
   }
 `;
 
