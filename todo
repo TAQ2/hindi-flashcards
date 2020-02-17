@@ -1,12 +1,9 @@
 Hindi
 
 DEADLINE
-- colour design is crap
 - check other browsers
 - check mobile
-- update website
 - Favicon
-
 
 SEPERATE OUT WHAT IS REVISION AND WHAT IS COMPLETING THE PROJECT
 typescript?
@@ -18,8 +15,7 @@ does it make sense to have hindi -> eng pronounce or vice versa
 allow to practice phrases from a given class week? 
 
 
-Readme needs more work - suggests we need to do some tests
-
+Readme needs more work - suggests we need to do some tests - then update website to include tests 
 ISSUES WITH DATA STRUCTURE
     - synonyms
     - fem plural of how is same as fem sing so how do we make sure the answer and choices are correct
@@ -53,3 +49,6 @@ use typescript?
 OTHER
 
 Check the Hindi practice repo for more things
+
+
+https://jakemiller.net/translate-in-google-sheets/

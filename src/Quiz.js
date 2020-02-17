@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FaTimes, FaCheck } from "react-icons/fa";
+import { animated, useSpring } from "react-spring";
 
 import {
   shuffle,
@@ -71,6 +72,53 @@ const ChoicesContainer = styled.div`
   }
 `;
 
+const ResultIndicatorContainer = styled(animated.div)`
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: fit-content;
+  height: fit-content;
+  font-size: 22em;
+
+  @media (max-width: ${screenBreakpoints.tablet}px) {
+    font-size: 16em;
+  }
+
+  @media (max-width: ${screenBreakpoints.small}px) {
+    font-size: 12em;
+  }
+`;
+
+const ResultIndicator = React.memo(function({
+  setDisplayAnimation,
+  displayAnimation
+}) {
+  const animation = useSpring({
+    from: { transform: "translateX(calc(-100vw))" },
+
+    to: [
+      {
+        transform: "translateX(calc(-100vw))"
+      },
+      { transform: "translateX(0%)" },
+      { transform: "ttranslateX(calc(100vw))" }
+    ],
+    onRest: () => setDisplayAnimation(false)
+  });
+  return (
+    <ResultIndicatorContainer style={animation}>
+      {displayAnimation === "Y" ? (
+        <FaCheck style={{ color: colours.secondary }} />
+      ) : (
+        <FaTimes style={{ color: colours.primary }} />
+      )}
+    </ResultIndicatorContainer>
+  );
+});
+
 // @Cleanup - strings in the function should be constants
 // @Cleanup - put in logic file
 function calculateRandomRoundType() {
@@ -97,6 +145,7 @@ function calculateRandomRoundType() {
 }
 
 function Quiz({ config, setHasStarted }) {
+  const [displayAnimation, setDisplayAnimation] = useState(false);
   const [history, setHistory] = useState([]);
   const [roundType, setRoundType] = useState(calculateRandomRoundType());
   const [questions, setQuestions] = useState(
@@ -112,6 +161,7 @@ function Quiz({ config, setHasStarted }) {
   );
 
   const handleConfirmAnswer = () => () => {
+    setDisplayAnimation(selectedAnswer === currentQuestion ? "Y" : "N");
     setHistory([
       ...history,
       {
@@ -191,6 +241,12 @@ function Quiz({ config, setHasStarted }) {
           Restart
         </Button>
       </div>
+      {displayAnimation && (
+        <ResultIndicator
+          displayAnimation={displayAnimation}
+          setDisplayAnimation={setDisplayAnimation}
+        />
+      )}
       <div
         style={{
           textAlign: "center",
