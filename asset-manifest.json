@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/hindi-flashcards/static/js/main.46f17a24.chunk.js",
-    "main.js.map": "/hindi-flashcards/static/js/main.46f17a24.chunk.js.map",
+    "main.js": "/hindi-flashcards/static/js/main.630bec19.chunk.js",
+    "main.js.map": "/hindi-flashcards/static/js/main.630bec19.chunk.js.map",
     "runtime-main.js": "/hindi-flashcards/static/js/runtime-main.bff2ef76.js",
     "runtime-main.js.map": "/hindi-flashcards/static/js/runtime-main.bff2ef76.js.map",
     "static/js/2.610c469a.chunk.js": "/hindi-flashcards/static/js/2.610c469a.chunk.js",
     "static/js/2.610c469a.chunk.js.map": "/hindi-flashcards/static/js/2.610c469a.chunk.js.map",
     "index.html": "/hindi-flashcards/index.html",
-    "precache-manifest.a207afa08c146c4154c56893480c95da.js": "/hindi-flashcards/precache-manifest.a207afa08c146c4154c56893480c95da.js",
+    "precache-manifest.2294618301102e94c587e6d0c85279cd.js": "/hindi-flashcards/precache-manifest.2294618301102e94c587e6d0c85279cd.js",
     "service-worker.js": "/hindi-flashcards/service-worker.js",
     "static/js/2.610c469a.chunk.js.LICENSE.txt": "/hindi-flashcards/static/js/2.610c469a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.bff2ef76.js",
     "static/js/2.610c469a.chunk.js",
-    "static/js/main.46f17a24.chunk.js"
+    "static/js/main.630bec19.chunk.js"
   ]
 }
