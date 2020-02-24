@@ -1,21 +1,16 @@
 Hindi
 
-DEADLINE
-- check other browsers
-- check mobile
 - Favicon
+- SEPERATE OUT WHAT IS REVISION AND WHAT IS COMPLETING THE PROJECT
+- address config
+- allow to practice phrases from a given class week? 
+- Readme needs more work - suggests we need to do some tests - then update website to include tests 
 
-SEPERATE OUT WHAT IS REVISION AND WHAT IS COMPLETING THE PROJECT
 typescript?
 use redux? (there is a stash for it)
-results component
 
-add letters?
 does it make sense to have hindi -> eng pronounce or vice versa
-allow to practice phrases from a given class week? 
 
-
-Readme needs more work - suggests we need to do some tests - then update website to include tests 
 ISSUES WITH DATA STRUCTURE
     - synonyms
     - fem plural of how is same as fem sing so how do we make sure the answer and choices are correct
@@ -33,6 +28,7 @@ OPTIONS
     - whether to include phrases, words and letters
 
 NICE TO HAVE
+- add letters?
 - need another config otherwise it looks strange - perhaps use a timer?
 - slider design
 - progress bar of kinds?

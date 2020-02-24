@@ -33,7 +33,11 @@ const Title = styled.div`
 //   }
 // `;
 
-export default function SetupScreen({ setHasStarted, config, setConfig }) {
+export default function SetupScreen({
+  setHasStarted
+  // config,
+  // setConfig
+}) {
   useEffect(() => {
     const keyPressHandler = ({ key }) => key === "Enter" && setHasStarted(true);
 
@@ -44,7 +48,7 @@ export default function SetupScreen({ setHasStarted, config, setConfig }) {
   }, [setHasStarted]);
 
   return (
-    <div // @Cleanup - move this container to App.js?
+    <div
       style={{
         paddingTop: "4rem",
         height: "100%",

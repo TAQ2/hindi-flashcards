@@ -33,8 +33,7 @@ const SmallContainer = styled.div`
   }
 `;
 
-// @Cleanup
-const Thing = styled.div`
+const ChoiceContainer = styled.div`
   display: flex;
   justify-content: center;
 
@@ -97,10 +96,7 @@ export default function History({ history, handleExitHistory, isResults }) {
           </div>
         )}
         <LargeContainer>
-          {history.map((
-            round, // @Cleanup - round is different terminolgy
-            i
-          ) => (
+          {history.map((round, i) => (
             <div
               key={i}
               style={{
@@ -134,10 +130,7 @@ export default function History({ history, handleExitHistory, isResults }) {
           ))}
         </LargeContainer>
         <SmallContainer>
-          {history.map((
-            round, // @Cleanup - round is different terminolgy
-            i
-          ) => (
+          {history.map((round, i) => (
             <div
               key={i}
               style={{
@@ -154,7 +147,7 @@ export default function History({ history, handleExitHistory, isResults }) {
               >
                 {round.question[round.type[0]]}
               </div>
-              <Thing>
+              <ChoiceContainer>
                 {round.choices.map((choice, i) => {
                   let color = colours.primary;
 
@@ -176,7 +169,7 @@ export default function History({ history, handleExitHistory, isResults }) {
                     </span>
                   );
                 })}
-              </Thing>
+              </ChoiceContainer>
             </div>
           ))}
         </SmallContainer>

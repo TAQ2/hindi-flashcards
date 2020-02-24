@@ -6,6 +6,8 @@ import { createGlobalStyle } from "styled-components";
 
 import { colours } from "./theme";
 
+// use global style instead of index.css file so that we can inject the colour
+// from the theme file
 const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${colours.quinary};
